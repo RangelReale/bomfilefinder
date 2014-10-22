@@ -88,7 +88,7 @@ void MainWindow::itemDoubleClicked(QTreeWidgetItem * item, int column)
 {
 	if (item != NULL)
 	{
-		QDesktopServices::openUrl(QUrl(item->text(1)));
+		QDesktopServices::openUrl(QUrl::fromLocalFile(item->text(1)));
 	}
 }
 
