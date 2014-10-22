@@ -1,0 +1,7 @@
+/build
+/buildrel
+.cproject
+.project
+.settings
+*~
+*kdev4*
