@@ -1,0 +1,31 @@
+[Setup]
+AppName=BOMFileFinder
+AppVerName=BOMFileFinder 1.0
+DefaultDirName={pf}\BOMFileFinder
+DefaultGroupName=BOMFileFinder
+OutputBaseFilename=bomfilefinder_1.1_@SetupPlatform@
+OutputDir=.
+ChangesAssociations=yes
+VersionInfoVersion=1.0.0.0
+UninstallDisplayIcon={app}\bomfilefinder.exe
+UninstallDisplayName=BOMFileFinder
+ArchitecturesInstallIn64BitMode=@SetupArch@
+ArchitecturesAllowed=@SetupArch@
+
+[Files]
+Source: "bin\RelWithDebInfo\bomfilefinder.exe"; DestDir: "{app}"
+Source: "@QtRootPath@/bin/Qt5Core.dll"; DestDir: "{app}"
+Source: "@QtRootPath@/bin/Qt5Gui.dll"; DestDir: "{app}"
+Source: "@QtRootPath@/bin/Qt5Widgets.dll"; DestDir: "{app}"
+Source: "@QtRootPath@/bin/icudt53.dll"; DestDir: "{app}"
+Source: "@QtRootPath@/bin/icuin53.dll"; DestDir: "{app}"
+Source: "@QtRootPath@/bin/icuuc53.dll"; DestDir: "{app}"
+Source: "@QtRootPath@/bin/libEGL.dll"; DestDir: "{app}"
+Source: "@QtRootPath@/bin/libGLESv2.dll"; DestDir: "{app}"
+Source: "@QtRootPath@/plugins/platforms/qwindows.dll"; DestDir: "{app}/platforms"
+Source: "@MSVCDep1@"; DestDir: "{app}"
+Source: "@MSVCDep2@"; DestDir: "{app}"
+
+[Icons]
+Name: "{group}\BOMFileFinder"; Filename: "{app}\bomfilefinder.exe"; WorkingDir: "{app}"
+Name: "{group}\Uninstall BOMFileFinder"; Filename: "{uninstallexe}"

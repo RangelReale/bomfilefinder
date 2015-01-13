@@ -62,3 +62,27 @@ install (TARGETS ${EXE_NAME}
 	RUNTIME DESTINATION bin
 	LIBRARY DESTINATION lib
 )
+
+# installer
+get_target_property(QtCore_location Qt5::Core LOCATION)
+get_filename_component(QtRootPathBin ${QtCore_location} PATH)
+get_filename_component(QtRootPath ${QtRootPathBin} DIRECTORY)
+
+message(status "MSVC: ${CMAKE_INSTALL_SYSTEM_RUNTIME_LIBS}")
+
+list(GET CMAKE_INSTALL_SYSTEM_RUNTIME_LIBS 0 MSVCDep1)
+list(GET CMAKE_INSTALL_SYSTEM_RUNTIME_LIBS 1 MSVCDep2)
+
+set(SetupPlatform "unknown")
+set(SetupArch "")
+if (WIN32)
+  if (CMAKE_CL_64) 
+	set(SetupPlatform "win64")
+	set(SetupArch "x64")
+  else()
+	set(SetupPlatform "win32")
+  endif() 
+endif()
+
+
+configure_file(${CMAKE_SOURCE_DIR}/bomfilefinder.iss.in ${PROJECT_BINARY_DIR}/bomfilefinder.iss )
